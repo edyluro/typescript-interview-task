@@ -4,7 +4,7 @@ import useItemsProvider from './useItemsProvider';
 import List from './components/List/List';
 import Filter from './components/Filter/Filter';
 import Header from './components/Header/Header';
-import ErrorBlock from '../ErrorBlock';
+import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import LoadingScreen from '../LoadingScreen';
 import { useUserContext } from '../UserContext';
 import { DefaultValues, Routes } from '~/constants';

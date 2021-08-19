@@ -1,0 +1,17 @@
+.error-wrapper {
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 13px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  background-image: linear-gradient(#ffe3e6, #ffe3e6);
+  border-color: #9e1c2333;
+  color: #24292e;
+  position: relative;
+
+  .error-message {
+    padding: 0 8px;
+    margin: 0 auto;
+  }
+}

@@ -2,7 +2,7 @@ import {SyntheticEvent, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Routes} from '~/constants';
 import login from '~/services/login';
-import ErrorBlock from '../ErrorBlock';
+import ErrorBlock from '../ErrorBlock/ErrorBlock';
 
 import './login-style.scss';
 
@@ -30,6 +30,7 @@ const Login = () => {
         <h1 className="text-center">
           Password Health
         </h1>
+        <ErrorBlock error={errorMessage}/>
         <input
           value={username}
           onChange={(event) => setUsername(event.target.value)}
@@ -44,7 +45,6 @@ const Login = () => {
           type="password"
           className="input mt-24px"
         />
-        <ErrorBlock error={errorMessage}/>
         <button type="submit" className="button mt-24px">
           Login
         </button>
