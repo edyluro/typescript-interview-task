@@ -1,4 +1,5 @@
 import { API } from '~/constants';
+import { errorHandler } from '~/utils/errorHandler';
 import getUrl from '~/utils/getUrl';
 
 export interface IItem {
@@ -19,8 +20,12 @@ const getUserItems = async (userId?: string): Promise<Array<IItem>> => {
 			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	});
+	if (!response.ok) {
+		errorHandler(response);
+		return [];
+	}
 
-  const data = await response.json();
+	const data = await response.json();
 
 	return data.items;
 };
