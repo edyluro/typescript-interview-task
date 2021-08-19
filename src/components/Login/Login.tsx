@@ -11,9 +11,11 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState<string>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
     setErrorMessage(null);
 
     try {
@@ -21,6 +23,7 @@ const Login = () => {
       push(Routes.PasswordHealth);
     } catch (error) {
       setErrorMessage(error.message);
+      setIsLoading(false);
     }
   };
 
@@ -45,8 +48,8 @@ const Login = () => {
           type="password"
           className="input mt-24px"
         />
-        <button type="submit" className="button mt-24px">
-          Login
+        <button type="submit" className="button mt-24px" disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
         </button>
       </form>
     </div>

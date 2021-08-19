@@ -1,17 +1,21 @@
-import {API} from '~/constants';
+import { API } from '~/constants';
 import getUrl from '../utils/getUrl';
 
 const login = async (username: string, password: string) => {
-  const url = getUrl(API.Login, {
-    username,
-    password,
-  });
+	const url = getUrl(API.Login, {
+		username,
+		password,
+	});
 
-  const response = await fetch(url);
-  const data = await response.json();
-  const { token } = data;
+	const response = await fetch(url);
+	if (response.ok) {
+		const data = await response.json();
+		const { token } = data;
 
-  localStorage.setItem('token', token);
+		localStorage.setItem('token', token);
+	} else {
+		throw Error('Incorrect username or password.');
+	}
 };
 
 export default login;
