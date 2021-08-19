@@ -16,4 +16,5 @@ export enum API {
 
 export enum DefaultValues {
 	DaysOld = 30,
+	StrongThreshold = 2,
 }

@@ -1,3 +1,4 @@
+import { DefaultValues } from "~/constants";
 import {IItem} from "~/services/getUserItems";
 
 const itemHasWeakPassword = (item: IItem) => {
@@ -10,7 +11,7 @@ const itemHasWeakPassword = (item: IItem) => {
     password.match(/[0-9]/) != null,
   ].filter(Boolean).length;
 
-  return strength > 2;
+  return strength <= DefaultValues.StrongThreshold;
 };
 
 export default itemHasWeakPassword;
