@@ -1,6 +1,5 @@
 import { API } from '~/constants';
-import { errorHandler } from '~/utils/errorHandler';
-import getUrl from '~/utils/getUrl';
+import { errorHandler, getUrl } from '~/utils';
 
 export interface IItem {
 	id: string;

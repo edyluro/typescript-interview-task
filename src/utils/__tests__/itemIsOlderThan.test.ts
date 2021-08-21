@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { DefaultValues } from '../../constants';
-import itemIsOlderThan from '../itemIsOlderThan';
+import { itemIsOlderThan } from '~/utils';
 
 const items = [
 	{

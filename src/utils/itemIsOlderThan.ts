@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { IItem } from '~/services/getUserItems';
 
-const itemIsOlderThan = (
+export const itemIsOlderThan = (
 	item: IItem,
 	comparatorValue: number,
 	unitOfTime: moment.unitOfTime.Diff = 'days'
@@ -11,5 +11,3 @@ const itemIsOlderThan = (
 
 	return today.diff(createdDate, unitOfTime) > comparatorValue;
 };
-
-export default itemIsOlderThan;

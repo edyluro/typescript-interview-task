@@ -1,5 +1,5 @@
 import { API } from '~/constants';
-import getUrl from '../utils/getUrl';
+import { getUrl } from '~/utils';
 
 const login = async (username: string, password: string) => {
 	const url = getUrl(API.Login, {

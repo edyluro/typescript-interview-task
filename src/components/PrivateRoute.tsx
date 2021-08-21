@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Redirect, Route, RouteProps } from 'react-router-dom';
 import { Routes } from '~/constants';
-import isLoggedIn from '~/utils/isLoggedIn';
+import { isLoggedIn } from '~/utils';
 
 const PrivateRoute: FC<RouteProps> = ({ component: Component, path }) => {
 	return (

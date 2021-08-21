@@ -8,9 +8,11 @@ import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import LoadingScreen from '../LoadingScreen';
 import { useUserContext } from '../UserContext';
 import { DefaultValues, Routes } from '~/constants';
-import itemHasWeakPassword from '~/utils/itemHasWeakPassword';
-import itemHasReusedPassword from '~/utils/itemHasReusedPassword';
-import itemIsOlderThan from '~/utils/itemIsOlderThan';
+import {
+	itemHasWeakPassword,
+	itemHasReusedPassword,
+	itemIsOlderThan,
+} from '~/utils';
 
 const PasswordHealth = () => {
 	const {

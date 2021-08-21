@@ -4,9 +4,11 @@ import { IItem } from '~/services/getUserItems';
 import FilterTab from './components/FilterTab';
 
 import './filter-style.scss';
-import itemHasWeakPassword from '~/utils/itemHasWeakPassword';
-import itemHasReusedPassword from '~/utils/itemHasReusedPassword';
-import itemIsOlderThan from '~/utils/itemIsOlderThan';
+import {
+	itemHasWeakPassword,
+	itemHasReusedPassword,
+	itemIsOlderThan,
+} from '~/utils';
 
 interface IFilter {
 	items: Array<IItem>;
@@ -33,7 +35,7 @@ const Filter: FC<IFilter> = ({ items }) => {
 		<div className='filter'>
 			<FilterTab title='Weak' count={weakItemsCount} path={Routes.Weak} />
 			<FilterTab title='Reused' count={reusedItemsCount} path={Routes.Reused} />
-      <FilterTab title='Old' count={oldItemsCount} path={Routes.Old} />
+			<FilterTab title='Old' count={oldItemsCount} path={Routes.Old} />
 		</div>
 	);
 };

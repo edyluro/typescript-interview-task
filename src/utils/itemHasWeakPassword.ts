@@ -1,7 +1,7 @@
 import { DefaultValues } from "~/constants";
 import {IItem} from "~/services/getUserItems";
 
-const itemHasWeakPassword = (item: IItem) => {
+export const itemHasWeakPassword = (item: IItem) => {
   const { password } = item;
 
   const strength = [
@@ -13,5 +13,3 @@ const itemHasWeakPassword = (item: IItem) => {
 
   return strength <= DefaultValues.StrongThreshold;
 };
-
-export default itemHasWeakPassword;
