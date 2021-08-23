@@ -1,32 +1,32 @@
-import {useEffect, useState} from 'react';
-import getUserItems, {IItem} from '../../services/getUserItems';
+import { useEffect, useState } from 'react';
+import getUserItems, { IItem } from '../../services/getUserItems';
 
 const userItemsProvider = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState<String>();
-  const [items, setItems] = useState<Array<IItem>>([])
+	const [isLoading, setIsLoading] = useState(true);
+	const [errorMessage, setErrorMessage] = useState<String>();
+	const [items, setItems] = useState<Array<IItem>>([]);
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true);
+	useEffect(() => {
+		(async () => {
+			setIsLoading(true);
 
-      try {
-        const userItems = await getUserItems();
+			try {
+				const userItems = await getUserItems();
 
-        setItems(userItems);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
+				setItems(userItems);
+			} catch (error) {
+				setErrorMessage(error.message);
+			}
 
-      setIsLoading(false);
-    })()
-  }, []);
+			setIsLoading(false);
+		})();
+	}, []);
 
-  return {
-    isLoading,
-    errorMessage,
-    items,
-  }
+	return {
+		isLoading,
+		errorMessage,
+		items,
+	};
 };
 
 export default userItemsProvider;

@@ -1,19 +1,21 @@
-import {FC} from 'react';
-import {Route, RouteProps, useHistory} from 'react-router-dom';
-import {Routes} from '~/constants';
+import { FC } from 'react';
+import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { Routes } from '~/constants';
+import { isLoggedIn } from '~/utils';
 
-const PrivateRoute: FC<RouteProps> = ({
-  path,
-  component,
-}) => {
-  const {push} = useHistory();
-  const token = localStorage.getItem('token');
-
-  if (!token) {
-    push(Routes.Login);
-  }
-
-  return <Route path={path} component={component}/>
+const PrivateRoute: FC<RouteProps> = ({ component: Component, path }) => {
+	return (
+		<Route
+			path={path}
+			render={(routeProps) =>
+				isLoggedIn() ? (
+					<Component {...routeProps} />
+				) : (
+					<Redirect to={Routes.Login} />
+				)
+			}
+		/>
+	);
 };
 
 export default PrivateRoute;
